@@ -1,0 +1,44 @@
+node_modules/
+dist/
+build/
+coverage/
+.env
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# npm/yarn
+package-lock.json
+yarn.lock
+.yarn-integrity
+
+# Testing
+coverage/
+.nyc_output/
+
+# Production
+.env.production
+
+# Optional
+*.bak
+*.backup
+*.tmp
