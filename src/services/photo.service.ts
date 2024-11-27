@@ -17,6 +17,7 @@ class PhotoServices {
      * GET PHOTOS SERVICE
      * @returns
      */
+    // region Get Photos
     public getPhotos(): IPhoto[] {
         try {
             // Get all photos data from Database..
@@ -32,6 +33,7 @@ class PhotoServices {
      * @param photoId 
      * @returns 
      */
+    // region Get Photo By ID
     public getPhotoById(photoId: string | number): IPhoto {
         try {
             if (!photoId) throw new Error('Photo ID is required');
@@ -54,6 +56,7 @@ class PhotoServices {
      * @param photoData 
      * @returns 
      */
+    // region Create Photo
     public createPhoto(photoData: IPhotoCreate): IPhoto {
         try {
             // Check photo data..
@@ -85,6 +88,7 @@ class PhotoServices {
      * @param photoId 
      * @param photoData 
      */
+    // region Update Photo
     public updatePhoto(photoId: string | number, updatePhotoData: IPhotoUpdate): IPhoto {
         try {
             // Check photo ID..
@@ -118,6 +122,7 @@ class PhotoServices {
      * @param photoId 
      * @returns 
      */
+    // region Delete Photo
     public deletePhoto(photoId: string | number): IPhoto {
         try {
             // Check photo ID..
