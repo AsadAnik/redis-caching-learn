@@ -8,6 +8,13 @@ const router: Router = Router();
 const photoController = new PhotoController();
 
 // CRUD Routes
-router.get('/', photoController.getPhotos);
+router.route('/')
+    .get(photoController.getPhotos)
+    .post(photoController.createPhoto);
+
+router.route('/:id')
+    .get(photoController.getPhoto)
+    .put(photoController.updatePhoto)
+    .delete(photoController.deletePhoto);
 
 export default router;
