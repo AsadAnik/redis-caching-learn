@@ -7,7 +7,7 @@ class UserController {
      * @param _req 
      * @param res 
      */
-    public getUsers(_req: Request, res: Response) {
+    public getUsers(_req: Request, res: Response): void {
         try {
             const userService = new UserServices();
             const users = userService.getUsers();

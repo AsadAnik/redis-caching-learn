@@ -3,7 +3,7 @@ class UserService {
      * GET USERS SERVICE
      * @returns 
      */
-    public getUsers() {
+    public getUsers(): string {
         return 'getUsers';
     }
 }

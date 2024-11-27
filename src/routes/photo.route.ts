@@ -1,13 +1,13 @@
 import { Router } from 'express';
-import  { UserController } from '../controllers/';
+import  { PhotoController } from '../controllers';
 
 // Create router
 const router: Router = Router();
 
 // Intance of controller
-const userController = new UserController();
+const photoController = new PhotoController();
 
 // CRUD Routes
-router.get('/', userController.getUsers);
+router.get('/', photoController.getPhotos);
 
 export default router;
