@@ -29,7 +29,7 @@ app.use((err: Error, _req: Request, res: Response) => {
 
 // Start Server
 const host: string = String(process.env.HOST) || 'localhost';
-const port: number = Number(process.env.PORT) || 3000;
+const port: number = Number(process.env.PORT) || 8080;
 
 app.listen(port, host, function() {
     console.log(`Server listens http://${host}:${port}`);

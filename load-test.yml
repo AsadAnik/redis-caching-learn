@@ -1,0 +1,12 @@
+config:
+  target: http://localhost:8080
+  phases:
+    - name: 'warmup'
+      duration: 60
+      arrivalRate: 10
+  
+scenarios:
+  - name: 'Get All Photos Resources'
+    flow:
+    - get:
+        url: '/api/photos'
