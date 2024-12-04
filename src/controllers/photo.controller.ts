@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { PhotoServices } from '../services';
 import { IPhoto, IPhotoCreate, IPhotoUpdate } from '../models/Photo';
+import { getOrSetCache } from '../lib/redis';
 
 class PhotoController {
     constructor(private readonly photoService: PhotoServices = new PhotoServices()) {
@@ -13,9 +14,12 @@ class PhotoController {
      * @param _req 
      * @param res 
      */
-    public getPhotos = (_req: Request, res: Response): void => {
+    public getPhotos = async (req: Request, res: Response): Promise<void> => {
         try {
-            const photos: IPhoto[] = this.photoService.getPhotos();
+            // Used the Cache-Aside Pattern by Redis
+            const key: string = `get-${req.url}api/photos`;
+            const photos: IPhoto[] = await getOrSetCache(key, async () => await this.photoService.getPhotos());
+
             res.status(200).send(photos);
 
         } catch (error: Error | any) {
