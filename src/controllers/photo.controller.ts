@@ -18,7 +18,7 @@ class PhotoController {
         try {
             // Used the Cache-Aside Pattern by Redis
             const key: string = `get-${req.url}api/photos`;
-            const photos: IPhoto[] = await getOrSetCache(key, async () => await this.photoService.getPhotos());
+            const photos: IPhoto[] = await getOrSetCache(key, async () => this.photoService.getPhotos());
 
             res.status(200).send(photos);
 

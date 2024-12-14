@@ -11,7 +11,7 @@ import handleRedisError from './redis.error-handler';
 // region Get / Set Cache
 export const getOrSetCache = async<T>(key: string, fetchData: () => Promise<T>): Promise<T> => {
     try {
-        // ttl Time-to-live in seconds (default: 3600)
+        // ttl Time-to-live in seconds (default: 3600) = 1h time.. (We Can reduce the time)
         const ttl: number = Number(process.env.REDIS_EXPIRE_TIME) ?? 3600;
 
         // Attemps to fetch from Redis..
