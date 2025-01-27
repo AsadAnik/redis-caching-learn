@@ -4,7 +4,10 @@ import { IPhoto, IPhotoCreate, IPhotoUpdate } from '../models/Photo';
 import { getOrSetCache } from '../lib/redis';
 
 class PhotoController {
-    constructor(private readonly photoService: PhotoServices = new PhotoServices()) {
+    private readonly photoService: PhotoServices;
+    
+    constructor(photoService: PhotoServices = new PhotoServices()) {
+        this.photoService = photoService;
         // Using Arrow Function Instead of bind this. (This is not recommended)
         // this.getPhoto = this.getPhoto.bind(this);
     }
